@@ -2,13 +2,12 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    "small-corpus-searcher": "./src/small-corpus-searcher.js",
-    "small-corpus-searcher.min": "./src/small-corpus-searcher.js"
+    "small-corpus": "./src/small-corpus.js"
   },
   output: {
     path: 'build',
     filename: '[name].js',
-    library: 'SmallCorpusSearcher',
+    library: 'SmallCorpus',
     libraryTarget: 'umd'
   },
   module: {

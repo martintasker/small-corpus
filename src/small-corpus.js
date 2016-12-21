@@ -1,4 +1,4 @@
-class SmallCorpusSearcher {
+class SmallCorpus {
   constructor(docs, getString) {
     var self = this;
 
@@ -78,4 +78,4 @@ class SmallCorpusSearcher {
   }
 }
 
-export default SmallCorpusSearcher;
+export default SmallCorpus;

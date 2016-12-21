@@ -1,14 +1,15 @@
-# small-corpus-searcher -- TF-IDF-weighted search of small document corpus
+# small-corpus -- small document corpus supporting TF-IDF-weighted search
 
 Say you have 100-1000 documents.  They could be products, a music library,
 news articles, anything.  You want to offer your SPA web app users a quick
-search facility.  `small-corpus-searcher` could be for you.
+search facility.  `small-corpus` could be for you.
 
 To get started, `npm install` in the usual way.
 
 To initialize,
+
 ```javascript
-var corpus = new SmallCorpusSearcher(items, item => { item.title + ' ' + item.description});
+var corpus = new SmallCorpus(items, item => { item.title + ' ' + item.description});
 ```
 
 The `getWords` function which you pass to the constructor must build a single string for
@@ -35,5 +36,10 @@ how often a given word occurs in it.  Multiply the two together and you
 have the overall document ranking.  See, eg, [here](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 for more.
 
-This module is (in its current form, anyway) suitable only for a small, static, document corpus,
-since its API is synchronous and there's no `add()` function after the constructor.
+This is for a _small_ corpus, kept in RAM and searched with a synchronous API.
+Bigger corpuses would suffer search-time issues which would ordinarily be addressed with an async API.
+Really big corpuses would need a sophisticated database-backed back-end.  `small-corpus` isn't going
+to go there: hence the name.
+
+Currently only a _static_ corpus is supported, built with the constructor.  There's no `addDocument()` function.
+That could be added later without too much trouble.

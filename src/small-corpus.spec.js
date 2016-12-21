@@ -1,6 +1,6 @@
-import SmallCorpusSearcher from './small-corpus-searcher';
+import SmallCorpus from './small-corpus';
 
-describe('SmallCorpusSearcher', function() {
+describe('SmallCorpus', function() {
 
   // test data
   var DOCS = [
@@ -17,7 +17,7 @@ describe('SmallCorpusSearcher', function() {
   var that;
 
   beforeEach(function() {
-    that = new SmallCorpusSearcher(DOCS, getWords);
+    that = new SmallCorpus(DOCS, getWords);
   });
 
   describe('initialization', function() {

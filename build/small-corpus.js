@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["SmallCorpusSearcher"] = factory();
+		exports["SmallCorpus"] = factory();
 	else
-		root["SmallCorpusSearcher"] = factory();
+		root["SmallCorpus"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -64,9 +64,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var SmallCorpusSearcher = function () {
-	  function SmallCorpusSearcher(docs, getString) {
-	    _classCallCheck(this, SmallCorpusSearcher);
+	var SmallCorpus = function () {
+	  function SmallCorpus(docs, getString) {
+	    _classCallCheck(this, SmallCorpus);
 	
 	    var self = this;
 	
@@ -99,7 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    corpusWordIndex = null; // free the memory
 	  }
 	
-	  _createClass(SmallCorpusSearcher, [{
+	  _createClass(SmallCorpus, [{
 	    key: '_wordsFromString',
 	    value: function _wordsFromString(string) {
 	      string = string.replace(/'/gi, '');
@@ -109,8 +109,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    }
 	  }, {
-	    key: 'filter',
-	    value: function filter(term) {
+	    key: 'search',
+	    value: function search(term) {
 	      var self = this;
 	      var terms = this._wordsFromString(term);
 	      var hits = this.docs.map(function (item) {
@@ -147,13 +147,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }]);
 	
-	  return SmallCorpusSearcher;
+	  return SmallCorpus;
 	}();
 	
-	exports.default = SmallCorpusSearcher;
+	exports.default = SmallCorpus;
 
 /***/ }
 /******/ ])
 });
 ;
-//# sourceMappingURL=small-corpus-searcher.js.map
+//# sourceMappingURL=small-corpus.js.map
