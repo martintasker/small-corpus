@@ -39,7 +39,20 @@ describe('SmallCorpus', function() {
       }
     });
     it('splits words correctly', function() {
-      expect(that.docs[0].words).toEqual(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']);
+      expect(that.docs[0].words).toEqual([
+        'the',
+        'quick',
+        'brown',
+        'fox',
+        'jumps',
+        'over',
+        'the',
+        'lazy',
+        'dog'
+      ]);
+    });
+    it('gets IDF of "the" and "to" in right order', function() {
+      expect(that.IDF['the']).toBeLessThan(that.IDF['to']);
     });
     it('gets IDF of "the" and "fox" in right order', function() {
       expect(that.IDF['the']).toBeLessThan(that.IDF['fox']);
@@ -71,7 +84,26 @@ describe('SmallCorpus', function() {
     });
     it('preserves numbers', function() {
       var res = that._wordsFromString('How do you do, Thing1 and Thing2?');
-      expect(res).toEqual(['how', 'do', 'you', 'do', 'thing1', 'and', 'thing2']);
+      expect(res).toEqual([
+        'how',
+        'do',
+        'you',
+        'do',
+        'thing1',
+        'and',
+        'thing2'
+      ]);
+    });
+  });
+
+  describe('search()', function() {
+    it('finds "to/that" above "the"', function() {
+      var res = that.search('t');
+      expect(res[0]).toEqual(DOCS[2]);
+    });
+    it('finds two responses to "t q"', function() {
+      var res = that.search('t q');
+      expect(res.length).toEqual(2);
     });
   });
 });
