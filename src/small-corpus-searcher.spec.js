@@ -23,7 +23,7 @@ describe('SmallCorpusSearcher', function() {
   describe('initialization', function() {
     it('has public interface', function() {
       expect(typeof that._wordsFromString).toEqual('function');
-      expect(typeof that.filter).toEqual('function');
+      expect(typeof that.search).toEqual('function');
     });
     it('has properties', function() {
       expect(typeof that.docs).toEqual('object');

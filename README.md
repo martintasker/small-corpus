@@ -8,7 +8,7 @@ To get started, `npm install` in the usual way.
 
 To initialize,
 ```javascript
-var index = new SmallCorpusSearcher(items, item => { item.title + ' ' + item.description});
+var corpus = new SmallCorpusSearcher(items, item => { item.title + ' ' + item.description});
 ```
 
 The `getWords` function which you pass to the constructor must build a single string for
@@ -18,7 +18,7 @@ want to search on (remembering the blanks between).
 To search,
 
 ```javascript
-var hitlist = index.filter('a');
+var hitlist = corpus.search('a');
 hitlist.forEach(item => { console.log('found', item); });
 ```
 
@@ -31,7 +31,7 @@ ranked higher than items with fewer instances.
 This ranking is conventional in information retrieval and is known as TF-IDF:
 "term-frequency, times inverse document-frequency": the IDF means you rank
 words by their rarity in documents, and the TF means you rank documents by
-how often a given rare word occurs in it.  Multiply the two together and you
+how often a given word occurs in it.  Multiply the two together and you
 have the overall document ranking.  See, eg, [here](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 for more.
 

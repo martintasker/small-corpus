@@ -39,7 +39,7 @@ class SmallCorpusSearcher {
     });
   };
 
-  filter(term) {
+  search(term) {
     var self = this;
     var terms = this._wordsFromString(term);
     var hits = this.docs.map(function(item) {
