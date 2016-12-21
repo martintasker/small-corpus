@@ -1,0 +1,12 @@
+{
+  "name": "small-corpus-searcher",
+  "private": true,
+  "devDependencies": {
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "build": "echo build",
+    "test": "echo test"
+  }
+}
